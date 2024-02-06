@@ -1,7 +1,7 @@
 public class Stock {
-    private double price;
+    double price;
     private double pProb;
-    private double pN;
+    double pN;
     
     /*
         price p_s (double between $1 and $100) 
