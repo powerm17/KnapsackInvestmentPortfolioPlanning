@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class OptimalPlanning {
     public static List<Stock> optimalSelectStocks(List<Stock> stocks, double budget) {
@@ -29,25 +30,27 @@ public class OptimalPlanning {
         return selectedStocks;
     }
 
+    public static void AddStocks(List<Stock> stocks, int numberOfStocks) {
+        for (int i = 0; i < numberOfStocks; i++) {
+            // You may generate or fetch stock data here
+            // For simplicity, adding a dummy stock
+            stocks.add(new Stock(1 + i, 2 + i, 3 + i));
+        }
+    }
+
     public static void main(String[] args) {
         // Stock data
         List<Stock> stocks = new ArrayList<>();
-        stocks.add(new Stock(1000, 0.5, 2000));
-        stocks.add(new Stock(150, 0.5, 300));
-        stocks.add(new Stock(50, 0.6, 120));
-        stocks.add(new Stock(80, 0.8, 180));
-        stocks.add(new Stock(35, 0.3, 130));
-        stocks.add(new Stock(30, 0.8, 70));
-        stocks.add(new Stock(20, 0.3, 55));
-        stocks.add(new Stock(15, 0.4, 50));
-        stocks.add(new Stock(10, 0.5, 66));
-        stocks.add(new Stock(5, 0.2, 20));
+        AddStocks(stocks, 10);
 
         double budget = 2500;
+        long startTime = System.currentTimeMillis();
         List<Stock> selectedStocks = optimalSelectStocks(stocks, budget);
+        long endTime = System.currentTimeMillis();
         System.out.println("Selected Stocks:");
         for (Stock stock : selectedStocks) {
             System.out.printf("Price: $%.2f, Profitability: %.2f%n", stock.price, stock.pN / stock.price);
         }
+        System.out.println("The total time in miliseconds is :" + (endTime - startTime));
     }
 }

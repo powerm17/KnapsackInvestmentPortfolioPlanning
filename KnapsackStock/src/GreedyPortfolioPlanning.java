@@ -32,20 +32,29 @@ public class GreedyPortfolioPlanning {
         return selectedStocks;
     }
 
+    public static void AddStocks(List<Stock> stocks, int numberOfStocks) {
+        for (int i = 0; i < numberOfStocks; i++) {
+            // You may generate or fetch stock data here
+            // For simplicity, adding a dummy stock
+            stocks.add(new Stock(1 + i, 2 + i, 3 + i));
+        }
+    }
+
     public static void main(String[] args) {
+        
         //Insert dummy data
         List<Stock> stocks = new ArrayList<>();
-        stocks.add(new Stock(50, 0.6, 120));
-        stocks.add(new Stock(30, 0.8, 70));
-        stocks.add(new Stock(15, 0.4, 50));
-        stocks.add(new Stock(10, 0.5, 66));
+        AddStocks(stocks, 10);
 
         double budget = 2500;
+        long startTime = System.currentTimeMillis();
         List<Stock> selectedStocks = greedySelectStocks(stocks, budget);
-
+        long endTime = System.currentTimeMillis();
         // Print the selected stocks
         for (Stock stock : selectedStocks) {
-            System.out.println("Selected Stock: " + stock + ", Profitability: " + (stock.getpProb() / stock.getPrice()));
+            System.out.printf("Price: $%.2f, Profitability: %.2f%n", stock.price, stock.pN / stock.price);
         }
+        System.out.println("The total time in miliseconds is :" + (endTime - startTime));
+
     }
 }
