@@ -41,7 +41,7 @@ public class OptimalPlanning {
     public static void main(String[] args) {
         // Stock data
         List<Stock> stocks = new ArrayList<>();
-        AddStocks(stocks, 10);
+        AddStocks(stocks, 5000);
 
         double budget = 2500;
         long startTime = System.currentTimeMillis();

@@ -44,7 +44,7 @@ public class GreedyPortfolioPlanning {
         
         //Insert dummy data
         List<Stock> stocks = new ArrayList<>();
-        AddStocks(stocks, 10);
+        AddStocks(stocks, 5000);
 
         double budget = 2500;
         long startTime = System.currentTimeMillis();
